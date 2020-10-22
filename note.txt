@@ -1,0 +1,9 @@
+Could find the build directory in the root directory of the project => turned that the configuration of the truffle unbox react already put the built json file into the a contract directory in the client/src directoty and wired it up accordingly.
+Encounter issue with react watchify the solution is here => https://klequis.io/error-enospc-system-limit-for-number-of-file-watchers-reached/
+Also had another issue with truffleContract not define => Turns out that npm install truffle-contract need to be ran to install the plugin and then truffleContract imported from truffle-contract
+
+
+It works!
+https://gateway.ipfs.io/ipfs/QmWH7ueodT4CCNTcNcvLkzfsC56G7JxsrYRWwzmVLKGvLe
+
+https://gateway.ipfs.io/ipfs/QmVetkTVfx9sF8rrstNV9HYbcm5d3dMTmFGqNFaUF8tHgY

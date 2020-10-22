@@ -8,7 +8,7 @@ https://consensys.net/blockchain-use-cases/energy-and-sustainability/
 https://ethereum.stackexchange.com/questions/71504/solidity-send-and-transfer-are-only-available-for-objects-of-type-address
 
 
-## Available Accounts
+Available Accounts
 ==================
 (0) 0xD731943ebce020aA4B7EC2b186FE1d8BDDD53851 (100 ETH)
 (1) 0x84Ad12A6E6cfac24517Fe0c041F4Ae3A370CB010 (100 ETH)
@@ -21,7 +21,7 @@ https://ethereum.stackexchange.com/questions/71504/solidity-send-and-transfer-ar
 (8) 0x75dC498D59ED32A029653f3cEfb8cde7e385dE55 (100 ETH)
 (9) 0x764b0d8E05Ce0135A96d49804Dd75eB9d7912420 (100 ETH)
 
-## Private Keys
+Private Keys
 ==================
 (0) 0x7c02c7a46c920e845a2f1bcdc20d8a193eefdffe3d085d0a18c2ab9d8c8e3268
 (1) 0x5eb93499ed5bcdb636dee09b27ec08cb39153ffe35d09dc38eeaeb7024c3a9b7
@@ -38,3 +38,7 @@ HD Wallet
 ==================
 Mnemonic:      large alter exist wash sting shadow hip maple ostrich reward armed crush
 Base HD Path:  m/44'/60'/0'/0/{account_index}
+
+## Git Help
+
+https://medium.com/@_oleksii_/how-to-synchronize-two-remote-git-repositories-e63b78892901

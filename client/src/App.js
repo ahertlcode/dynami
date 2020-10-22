@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import DynamicPowerContract from "./contracts/DynamicPower.json";
+import truffleContract from "truffle-contract";
+import DynamiContract from "./contracts/DynamiToken.json";
 import getWeb3 from "./getWeb3";
 
 import "./App.css";
@@ -17,9 +18,9 @@ class App extends Component {
 
       // Get the contract instance.
       const networkId = await web3.eth.net.getId();
-      const deployedNetwork = DynamicPowerContract.networks[networkId];
+      const deployedNetwork = DynamiContract.networks[networkId];
       const instance = new web3.eth.Contract(
-        DynamicPowerContract.abi,
+        DynamiContract.abi,
         deployedNetwork && deployedNetwork.address,
       );
 
