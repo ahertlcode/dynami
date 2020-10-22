@@ -9,18 +9,11 @@ contract("IPFSInbox", accounts => {
         // Set a variable to false, and create an event listener
         // to set it to true if the event fires.   
         var eventEmitted = false;
-        /*var event = ipfsInbox.ipfsSent();
-        await event.watch((err, res) => {
-            eventEmitted = true;
-        })
-        await ipfsInbox.ipfsSent().watch((err, res) => {
-            eventEmitted = true;
-        });*/
         
-        await ipfsInbox.ipfsSent((err, res) => {
-            if(!err) eventEmitted = true;
-            console.log(res);
-        })
+        ipfsInbox.getPastEvents("ipfsSent", (err, res) => {
+            if (!err) eventEmitted = true;
+        });
+
         
           // Call the contract function which sends an IPFS address
         await ipfsInbox.sendIPFS(accounts[1], 
@@ -33,6 +26,20 @@ contract("IPFSInbox", accounts => {
         } else {
             assert.equal(eventEmitted, true, 
             "Sending an IPFS request does emit an event.");
+        }
+
+        var gotEvent = false;
+
+        ipfsInbox.getPastEvents("inboxResponse", (err, res) => {
+            if (!err) gotEvent = true;
+        });
+
+        await ipfsInbox.checkInbox({from: accounts[0]});
+
+        if (!gotEvent) {
+            assert.equal(gotEvent, false, "Checking inbox does not emit an event");
+        } else {
+            assert.equal(gotEvent, true, "Checking inbox does emit an event");
         }
         
     });
