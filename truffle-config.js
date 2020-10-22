@@ -3,6 +3,7 @@ const HDWalletProvider = require("truffle-hdwallet-provider");
 const memonic = "predict remain sock solar grocery ranch pull palm sport palace captain shadow";
 //const infuraAccessToken = '4fbfcd8e47c248d694f336963c3c3266';
 const infuraAccessToken = '31f6a99e90064030ad9bac23ab904cc1';
+//const infuraAccessToken = '3d2b82ac349f4392b9c0498fcc59b0d5';
 
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>

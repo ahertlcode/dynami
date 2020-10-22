@@ -3969,6 +3969,32 @@
     "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
   },
   "networks": {
+    "4": {
+      "events": {
+        "0x5e5e995ce3133561afceaa51a9a154d5db228cd7525d34df5185582c18d3df09": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_buyer",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Sell",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x8cE1240512352c648929A6855BDb45C9D0Ba8905",
+      "transactionHash": "0x8e9fafd35922c0bf8286a34c23add8ec9ba35968eeb92508c96a696d16af6644"
+    },
     "1603312969911": {
       "events": {
         "0x5e5e995ce3133561afceaa51a9a154d5db228cd7525d34df5185582c18d3df09": {
@@ -4020,10 +4046,37 @@
       "links": {},
       "address": "0xA80eE2dc74800eD259230195247401a2aF15bCF2",
       "transactionHash": "0x5203c430e28b901df7b8c06f53f44f9affc972dda15dc865deb823973d71f482"
+    },
+    "1603383107769": {
+      "events": {
+        "0x5e5e995ce3133561afceaa51a9a154d5db228cd7525d34df5185582c18d3df09": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_buyer",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Sell",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x7b2E4C18a5f22834b91987b02366899387E8b2a5",
+      "transactionHash": "0xd4d111602dbaa271bfa6c829ae7c27de0061b6de1d947d6d2abd3c73573da21c"
     }
   },
   "schemaVersion": "3.2.2",
-  "updatedAt": "2020-10-22T12:35:11.345Z",
+  "updatedAt": "2020-10-22T21:42:49.731Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {}
   },
