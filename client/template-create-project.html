@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css"
+            integrity="sha512-ZRv40llEogRmoWgZwnsqke3HNzJ0kiI0+pcMgiz2bxO6Ew1DVBtWjVn0qjrXdT3+u+pSN36gLgmJiiQ3cQtyzA=="
+            crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Document</title>
+        <style>
+            div.select{
+                width:100%;
+            }
+            .hero-foot {
+                margin: none;
+                text-align: left;
+                padding: 0 2px 20px 60px;
+            }
+        </style>
+    </head>
+    <body>
+        <section class="hero is-fullwidth is-primary is-fullheight">
+            <div class="hero-body">
+                <div class="container">
+                    <div class="columns">
+                        <div class="column">&nbsp;</div>
+                        <div class="column">
+                            <form class="form container">
+                                <div class="field">
+                                    <h1 class="title is-3">Create A Project</h1>
+                                </div>
+                                <div class="field">
+                                    <label for="location" class="label">Project Location</label>
+                                    <div class="control">
+                                        <div class="select">
+                                            <select name="location" id="location" class="input">
+                                                <option value="0">Select Project Location</option>
+                                                <option value="1">Mushin</option>
+                                                <option value="2">Oshodi</option>
+                                                <option value="3">Agege</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label for="title" class="label">Project Title</label>
+                                    <div class="control">
+                                        <input type="text" class="input" id="title" name="title" />
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label for="gadgets" class="label">Required Gadgets/Equipments</label>
+                                    <div class="control">
+                                        <textarea name="gadgets" id="gadgets" cols="30" rows="5" class="textarea"></textarea>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label for="estimate" class="label">Total Estimates</label>
+                                    <div class="control">
+                                        <input type="text," class="input" name="estimate" id="estimate">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label for="quotation" class="label">Attached Quotation.</label>
+                                    <div class="control">
+                                        <div class="file has-name">
+                                            <label class="file-label">
+                                                <input class="file-input" type="file" name="quotation" id="quotation" />
+                                                <span class="file-cta">
+                                                    <span class="file-icon">
+                                                        <i class="fas fa-upload"></i>
+                                                    </span>
+                                                    <span class="file-label">
+                                                        Choose a file…
+                                                    </span>
+                                                </span>
+                                                <span class="file-name">
+                                                    Screen Shot 2017-07-29 at 15.54.25.png
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field">&nbsp;</div>
+                                <div class="field">
+                                    <button class="button is-link" type="submit">Submit Quote</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="column">&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-foot">
+                &copy;2020 ETHLagos Team-3
+            </div>
+        </section>
+    </body>
+</html>

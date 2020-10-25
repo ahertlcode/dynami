@@ -14,6 +14,10 @@ import {
 import Home from "./Home";
 import Projects from "./Projects";
 import Accounts from "./Accounts";
+import Profile from "./components/Profile";
+import BoardUser from "./components/BoardUser";
+import BoardModerator from "./components/BoardModerator";
+import BoardAdmin from "./components/BoardAdmin";
 
 
 import "./App.css";

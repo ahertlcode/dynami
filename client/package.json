@@ -3,13 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.20.0",
     "bignumber": "^1.1.0",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.3",
+    "express-stormpath": "^4.0.0-rc4",
     "ipfs-api": "^26.1.2",
     "react": "16.11.0",
     "react-dom": "16.11.0",
+    "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.2.0",
+    "react-validation": "^3.0.7",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "truffle-contract": "^4.0.31",
+    "validator": "^13.1.17",
     "web3": "1.2.2"
   },
   "scripts": {
@@ -32,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.8"
   }
 }

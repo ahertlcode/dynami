@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css" integrity="sha512-ZRv40llEogRmoWgZwnsqke3HNzJ0kiI0+pcMgiz2bxO6Ew1DVBtWjVn0qjrXdT3+u+pSN36gLgmJiiQ3cQtyzA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <style>
+        div.select{
+            width:100%;
+        }
+        .hero-foot{
+            margin:none;
+            text-align:left;
+            padding: 0 2px 20px 60px;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero is-fullwidth is-primary is-fullheight">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns">
+                    <div class="column">&nbsp;</div>
+                    <div class="column">
+                        <form class="form container">
+                            <div class="field">
+                                <h1 class="title is-3">Create An Account</h1>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <label for="username" class="label">Username</label>
+                                    <input type="text" class="input" id="username" name="username" />
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <label for="email" class="label">E-mail</label>
+                                    <input type="email" class="input" id="email" name="email" />
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <label for="password" class="label">Password</label>
+                                    <input type="password" class="input" id="password" name="password" />
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <label for="firstname" class="label">First Name</label>
+                                    <input type="text" class="input" id="firstname" name="firstname" />
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <label for="lastname" class="label">Last Name</label>
+                                    <input type="text" class="input" id="lastname" name="lastname" />
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <label for="phone" class="label">Phone</label>
+                                    <input type="tel" class="input" id="phone" name="phone" />
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="user_type" class="label">You are signing up as who?</label>
+                                <div class="control">
+                                <div class="select">
+                                    <select name="user_type" id="user_type" class="input">
+                                        <option value="0">Select the appropriate option.</option>
+                                         <option value="1">Donor</option>
+                                        <option value="2">Mini Grid Developer</option>
+                                        <option value="3">Vendor</option>
+                                    </select>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <label for="address" class="label">Address</label>
+                                    <textarea class="textarea" id="address" name="address" ></textarea>
+                                </div>
+                            </div>
+                            <div class="field">&nbsp;</div>
+                            <div class="field">
+                                <button type="submit" class="button is-link">Register</button>
+                            </div>
+                            <div class="field">&nbsp;</div>
+                            <div class="field">
+                                Already has an account? <a href="#">Login Here.</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="column">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-foot">
+            &copy;2020 ETHLagos Team-3
+        </div>
+    </section>
+</body>
+</html>

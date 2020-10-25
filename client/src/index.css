@@ -1,6 +1,6 @@
-body {
-  background-color: skyblue;
-  padding: 20px;
+.page-body {
+  background-color: rgba(21, 16, 88, 0.75);
+  height:100vh;
   margin: 0;
 }
 h1, h2, p, ul, li {
@@ -36,3 +36,26 @@ ul.header li a {
 .active {
   background-color: royalblue;
 }
+
+.card{
+    background-color:rgba(255,255,255, 0.35);
+}
+.card-footer a{
+    display:block;
+    text-align:right;
+}
+.hero-foot{
+    margin:none;
+    text-align:left;
+    padding: 0 2px 20px 60px;
+}
+figure.image img{
+    border-radius:10px;
+}
+div.select{
+    width:100%;
+}
+.head-title, .header-title:hover{
+  color: white;
+}
+        

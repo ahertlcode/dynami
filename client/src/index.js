@@ -1,12 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Route, HashRouter } from "react-router-dom";
 import './index.css';
-import App from './main';
-import * as serviceWorker from './serviceWorker';
+import { Header } from "./components/Header";
+import { Content } from "./components/Content";
+import { Footer } from "./components/Footer";
+import { Register } from "./components/Register";
+import { Login } from "./components/Login";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const Body = () => {
+    return (
+        <section class="hero is-fullwidth is-primary is-fullheight">
+            <Header />
+            <Content />
+            <Footer />
+        </section>
+    );
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(
+    <HashRouter>
+        <Route exact path="/" component={Body}/>
+        <Route path="/register" component={Register}/>
+        <Route path="/login" component={Login} />
+    </HashRouter>, document.getElementById("root"));

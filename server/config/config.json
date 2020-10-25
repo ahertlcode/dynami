@@ -1,0 +1,36 @@
+{
+    "development": {
+        "username": "root",
+        "password": "aherceo2",
+        "database": "dynami",
+        "host": "localhost",
+        "dialect": "mysql"
+    },
+    "test": {
+        "username": "root",
+        "password": null,
+        "database": "database_test",
+        "host": "localhost",
+        "dialect": "mysql"
+    },
+    "production": {
+        "username": "dynamidb_user",
+        "password": "dynami^ipo",
+        "database": "dynami",
+        "host": "localhost",
+        "dialect": "mysql"
+    },
+    "jwt": {
+        "secret": "dynamiToken"
+    },
+    "fb": {
+        "facebook_api_key": "408391016418185",
+        "facebook_api_secret": "7fc2deeb964f651015c722860f742cb3",
+        "callback_url": "http://localhost:3030/auth/facebook/callback",
+        "use_database": false,
+        "host": "localhost",
+        "username": "root",
+        "password": "aherceo2",
+        "database": "dynami"
+    }
+}
