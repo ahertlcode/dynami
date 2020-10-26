@@ -1,7 +1,7 @@
 {
     "development": {
         "username": "root",
-        "password": "Adisababa$",
+        "password": "aherceo2",
         "database": "dynami",
         "host": "localhost",
         "dialect": "mysql"

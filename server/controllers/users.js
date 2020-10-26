@@ -7,12 +7,12 @@ module.exports.create = (request, response, next) => {
         let userData = { ...request.body, password: hash };
         User.create(userData)
         .then(result => {
-            const {id, email, userRole = 0 } = result.id;
-            const payLoadParam = [id, email, userRole].join('!~+=');
+            const {id, email, userType = 0 } = result.id;
+            const payLoadParam = [id, email, userType].join('!~+=');
             const token = jwt.sign({userId: payLoadParam}, 'RANDOM_TOKEN_SECRET', {expiresIn:'24h'});
 
             return response.status(201).json({
-                "status": true, "message": "success", "data": { token, userId: id, userRole }
+                "status": true, "message": "success", "data": { token, userId: id, userType }
             });
         })
         .catch((error) => {
@@ -32,7 +32,7 @@ module.exports.create = (request, response, next) => {
 module.exports.login = (request, response, next) => {
     const { email, password } = request.body;
     User.findAll({
-        where:{ email }
+        where:{ email: email }
     }).then((res) => {
         let result = res[0].dataValues;
         bcrypt.compare(password, result.password)
@@ -43,14 +43,15 @@ module.exports.login = (request, response, next) => {
                 });
             }
 
-            const {id, email, userRole = 0 } = result;
-            const payLoadParam = [id, email, userRole].join('!~+=');
+            const {id, email, userType = 0 } = result;
+            const payLoadParam = [id, email, userType].join('!~+=');
             const token = jwt.sign({userId: payLoadParam}, 'RANDOM_TOKEN_SECRET', {expiresIn:'24h'});
             return response.status(201).json({
-                "status": true, "message": "success", "data": { token, userId: id, userRole }
+                "status": true, "message": "success", "data": { token, userId: id, userType }
             });
         })
         .catch((error) => {
+            console.log(error)
             return response.status(401).json({
                 "status": false, "message": "User cannot be Authenticated!", "data": {}
             });
@@ -58,7 +59,7 @@ module.exports.login = (request, response, next) => {
     }).catch((err) => {
         return response.status(500).json({
             status: false,
-            message: "Usercould not retrieved.",
+            message: "User could not be retrieved.",
             data: err
         });
     });

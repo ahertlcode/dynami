@@ -14,9 +14,9 @@ module.exports = (request, response, next) => {
         const { userId } = decodedToken;
         const payLoadParam = userId.split("!~+=");
 
-        request.body.user_id = payLoadParam[0] || "";
+        request.body.userId = payLoadParam[0] || "";
         request.body.email = payLoadParam[1] || "";
-        request.body.user_type = payLoadParam[2] || 0;
+        request.body.userType = payLoadParam[2] || 0;
         next();
         });
     } catch (e) {

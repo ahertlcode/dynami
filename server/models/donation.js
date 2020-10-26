@@ -12,12 +12,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Donation.belongsTo(models.User);
+      Donation.belongsTo(models.User, {foreignKey: 'donorId'});
     }
   };
   Donation.init({
-    donorId: DataTypes.INTEGER,
-    amount: DataTypes.FLOAT
+    donorId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    amount: {
+      type: DataTypes.FLOAT,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Donation',

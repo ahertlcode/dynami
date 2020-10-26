@@ -3,10 +3,10 @@ const express = require("express");
 const router = express.Router();
 const auth = require("../middlewares/auth");
 
-router.post("/projectstates", projectstates.create);
-router.get("/projectstates", projectstates.index);
-router.get("/projectstates/:id", projectstates.show);
-router.put("/projectstates/:id", projectstates.update);
-router.delete("/projectstates/:id", projectstates.remove);
+router.post("/projectstates", auth, projectstates.create);
+router.get("/projectstates", auth, projectstates.index);
+router.get("/projectstates/:id", auth, projectstates.show);
+router.put("/projectstates/:id", auth, projectstates.update);
+router.delete("/projectstates/:id", auth, projectstates.remove);
 
 module.exports = router;

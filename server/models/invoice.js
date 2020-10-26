@@ -11,16 +11,31 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Invoice.belongsTo(models.User);
+      Invoice.belongsTo(models.User, {foreignKey: 'vendorId'});
     }
   };
   Invoice.init({
-    projectId: DataTypes.INTEGER,
-    fileName: DataTypes.STRING,
-    invoiceNumber: DataTypes.STRING,
-    invoiceValue: DataTypes.FLOAT,
+    projectId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    fileName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    invoiceNumber: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    invoiceValue: {
+      type: DataTypes.FLOAT,
+      allowNull: false
+    },
     justification: DataTypes.STRING,
-    vendorId: DataTypes.INTEGER,
+    vendorId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     approved: DataTypes.BOOLEAN,
     supplied: DataTypes.BOOLEAN,
     confirmed: DataTypes.BOOLEAN

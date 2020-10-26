@@ -6,7 +6,8 @@ import { Header } from "./components/Header";
 import { Content } from "./components/Content";
 import { Footer } from "./components/Footer";
 import { Register } from "./components/Register";
-import { Login } from "./components/Login";
+import  Login  from "./components/Login";
+import { Dashboard } from "./components/Dashboard";
 
 const Body = () => {
     return (
@@ -20,7 +21,10 @@ const Body = () => {
 
 ReactDOM.render(
     <HashRouter>
-        <Route exact path="/" component={Body}/>
-        <Route path="/register" component={Register}/>
+        <Route exact path="/" component={Body} />
+        <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
-    </HashRouter>, document.getElementById("root"));
+        <Route path="/dashboard" component={Dashboard} />
+    </HashRouter>,
+  document.getElementById("root")
+);

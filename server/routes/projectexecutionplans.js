@@ -3,10 +3,10 @@ const express = require("express");
 const router = express.Router();
 const auth = require("../middlewares/auth");
 
-router.post("/projectexecutionplans", projectexecutionplans.create);
-router.get("/projectexecutionplans", projectexecutionplans.index);
-router.get("/projectexecutionplans/:id", projectexecutionplans.show);
-router.put("/projectexecutionplans/:id", projectexecutionplans.update);
-router.delete("/projectexecutionplans/:id", projectexecutionplans.remove);
+router.post("/projectexecutionplans", auth, projectexecutionplans.create);
+router.get("/projectexecutionplans", auth, projectexecutionplans.index);
+router.get("/projectexecutionplans/:id", auth, projectexecutionplans.show);
+router.put("/projectexecutionplans/:id", auth, projectexecutionplans.update);
+router.delete("/projectexecutionplans/:id", auth, projectexecutionplans.remove);
 
 module.exports = router;

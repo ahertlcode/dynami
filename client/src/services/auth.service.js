@@ -1,28 +1,36 @@
 const axios = require('axios').default;
 
-const API_URL = "http://localhost:3001/api/auth";
+const API_URL = "http://localhost:3030/users/";
 
-
-const register = (username, email, password) => {
-    return axios.post(API_URL+"signup", {
-        username, email, password
-    });
-}
-
-const login = (user_name, password) => {
-    return axios.post(API_URL+"signin", {
-        user_name, 
-        password
-    }).then((response) => {
-        if(response.data.accessToken) {
-            localStorage.setItem("user", JSON.stringify(response.data));
+class Auth {
+  login(email, password) {
+    return axios
+      .post(API_URL + "login", {
+        "email":email,
+        "password":password
+      })
+      .then(response => {
+        if (response.data.accessToken) {
+          localStorage.setItem("user", JSON.stringify(response.data));
         }
+
         return response.data;
-    });
-}
+      });
+  }
 
-const logout = () => {
+  logout() {
     localStorage.removeItem("user");
+  }
+
+  register(username, password, firstname, lastname, email, phone, wallet_address, address) {
+    return axios.post(API_URL, {
+      username, password, firstname, lastname, email, phone, wallet_address, address
+    });
+  }
+
+  getCurrentUser() {
+    return JSON.parse(localStorage.getItem('user'));;
+  }
 }
 
-export default { register, login, logout };
+export default new Auth();

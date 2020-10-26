@@ -11,12 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      ProjectState.belongsTo(models.User);
+      ProjectState.belongsTo(models.User, {foreignKey: 'developerId'});
     }
   };
   ProjectState.init({
-    projectId: DataTypes.INTEGER,
-    action: DataTypes.STRING
+    projectId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    action: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    }
   }, {
     sequelize,
     modelName: 'ProjectState',

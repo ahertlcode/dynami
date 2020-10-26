@@ -11,13 +11,22 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      ProjectExecutionPlan.belongsTo(models.User);
+      ProjectExecutionPlan.belongsTo(models.User, {foreignKey: 'developerId'});
     }
   };
   ProjectExecutionPlan.init({
-    projectId: DataTypes.INTEGER,
-    executionPlan: DataTypes.STRING,
-    developerId: DataTypes.INTEGER,
+    projectId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    executionPlan: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    developerId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     percentDone: DataTypes.FLOAT
   }, {
     sequelize,

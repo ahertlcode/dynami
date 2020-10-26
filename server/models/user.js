@@ -12,22 +12,46 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       User.belongsTo(models.UserType);
-      User.hasMany(models.Donation);
-      User.hasMany(models.Invoice);
-      User.hasMany(models.Project);
-      User.hasMany(models.ProjectExecutionPlan);
-      User.hasMany(models.ProjectState)
+      User.hasMany(models.Donation, {foreignKey: 'donorId'});
+      User.hasMany(models.Invoice, {foreignKey: 'vendorId'});
+      User.hasMany(models.Project, {foreignKey: 'developerId'});
+      User.hasMany(models.ProjectExecutionPlan, {foreignKey: 'developerId'});
+      User.hasMany(models.ProjectState, {foreignKey: 'developerId'})
     }
   };
   User.init({
-    userTypeId: DataTypes.INTEGER,
-    username: DataTypes.STRING,
-    password: DataTypes.STRING,
-    firstname: DataTypes.STRING,
-    lastname: DataTypes.STRING,
-    email: DataTypes.STRING,
-    phone: DataTypes.STRING,
-    walletAddress: DataTypes.STRING,
+    userTypeId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    firstname: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    lastname: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    phone: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    walletAddress: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     address: DataTypes.STRING
   }, {
     sequelize,

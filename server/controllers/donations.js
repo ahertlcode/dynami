@@ -12,16 +12,18 @@ module.exports.index = (request, response, next) => {
             data: res
         });
     }).catch((err) => {
+        console.log(err);
         return response.status(500).json({
             status: false,
-            message: "Could not retrieved user type.",
+            message: "Could not retrieved donation.",
             data: err
         });
     });
 };
 
 module.exports.create = (request, response, next) => {
-    Donation.create({...request.body})
+    console.log(request.body);
+    Donation.create({...request.body, donorId:request.body.userId})
     .then((res) => {
         return response.status(200).json({
             status: true,

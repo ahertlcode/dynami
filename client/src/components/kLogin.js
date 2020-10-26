@@ -11,9 +11,10 @@ import { login } from "../actions/auth";
 const required = (value) => {
     if (!value) {
         return (
-        <div className="alert alert-danger" role="alert">
+          <div className="notification is-danger">
+            <button class="delete"></button>
             This field is required!
-        </div>
+          </div>
         );
     }
 };
