@@ -10,26 +10,22 @@ class Auth {
         "password":password
       })
       .then(response => {
-        if (response.data.accessToken) {
-          localStorage.setItem("user", JSON.stringify(response.data));
-        }
-
         return response.data;
       });
   }
 
   logout() {
     localStorage.removeItem("user");
+    localStorage.removeItem("access_token");
+    window.location.href("/");
   }
 
-  register(username, password, firstname, lastname, email, phone, wallet_address, address) {
-    return axios.post(API_URL, {
-      username, password, firstname, lastname, email, phone, wallet_address, address
-    });
+  register(user) {
+    return axios.post(API_URL, {user});
   }
 
   getCurrentUser() {
-    return JSON.parse(localStorage.getItem('user'));;
+    return JSON.parse(localStorage.getItem('user'));
   }
 }
 

@@ -1,13 +1,14 @@
 const User = require("../models").User;
+const UserType = require("../models").UserType;
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 module.exports.create = (request, response, next) => {
-    bcrypt.hash(request.body.password, 10).then((hash) => {
-        let userData = { ...request.body, password: hash };
+    bcrypt.hash(request.body['user'].password, 10).then((hash) => {
+        let userData = { ...request.body['user'], password: hash };
         User.create(userData)
         .then(result => {
-            const {id, email, userType = 0 } = result.id;
+            const {id, email, userType } = result.id;
             const payLoadParam = [id, email, userType].join('!~+=');
             const token = jwt.sign({userId: payLoadParam}, 'RANDOM_TOKEN_SECRET', {expiresIn:'24h'});
 
@@ -21,7 +22,6 @@ module.exports.create = (request, response, next) => {
             });
         });
     }).catch((error) => {
-        console.log(error);
         return response.status(400).json({
             "status": false, "message": "process fail", "data": {}
         });
@@ -32,37 +32,51 @@ module.exports.create = (request, response, next) => {
 module.exports.login = (request, response, next) => {
     const { email, password } = request.body;
     User.findAll({
-        where:{ email: email }
+        include: { model: UserType },
+        where: { email: email },
     }).then((res) => {
         let result = res[0].dataValues;
-        bcrypt.compare(password, result.password)
-        .then((valid) => {
+        bcrypt
+          .compare(password, result.password)
+          .then((valid) => {
             if (!valid) {
-                return response.status(401).json({
-                    "status": false, "message": "Incorrect Password", "data": {}
-                });
+              return response.status(401).json({
+                status: false,
+                message: "Incorrect Password",
+                data: {},
+              });
             }
-
-            const {id, email, userType = 0 } = result;
-            const payLoadParam = [id, email, userType].join('!~+=');
-            const token = jwt.sign({userId: payLoadParam}, 'RANDOM_TOKEN_SECRET', {expiresIn:'24h'});
+            const { id, email } = result;
+            const userType = result.UserType.dataValues.userType;
+            const payLoadParam = [id, email, userType].join("!~+=");
+            const token = jwt.sign(
+              { userId: payLoadParam },
+              "RANDOM_TOKEN_SECRET",
+              { expiresIn: "24h" }
+            );
             return response.status(201).json({
-                "status": true, "message": "success", "data": { token, userId: id, userType }
+              status: true,
+              message: "success",
+              data: { token, userId: id, userType },
             });
-        })
-        .catch((error) => {
-            console.log(error)
+          })
+          .catch((error) => {
+              console.log(error);
             return response.status(401).json({
-                "status": false, "message": "User cannot be Authenticated!", "data": {}
+              status: false,
+              message: "User cannot be Authenticated!",
+              data: {},
             });
-        });
-    }).catch((err) => {
+          });
+      })
+      .catch((err) => {
+        console.log(err);
         return response.status(500).json({
-            status: false,
-            message: "User could not be retrieved.",
-            data: err
+          status: false,
+          message: "User could not be retrieved.",
+          data: err,
         });
-    });
+      });
 };
 
 module.exports.index = (request, response, next) => {

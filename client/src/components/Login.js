@@ -52,33 +52,34 @@ export default class Login extends Component {
       loading: true
     });
 
-    //this.form.validateAll();
+    Auth.login(this.state.email, this.state.password).then(
+      (result) => {
+        if(result.data.token){
+          localStorage.setItem("user", JSON.stringify(result.data));
+          localStorage.setItem("access_token", result.data.token);
+        } 
 
-    //if (this.checkBtn.context._errors.length === 0) {
-      Auth.login(this.state.email, this.state.password).then(
-        () => {
-          this.props.history.push("/dashboard");
-          window.location.reload();
-        },
-        error => {
-          const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString();
+        let usertype = result.data.userType.toUpperCase();
+        if (usertype === "ADMINISTRATOR") this.props.history.push("/dashboard");
+        if (usertype === "DONOR") this.props.history.push("/donor");
+        if (usertype === "DEVELOPER") this.props.history.push("/developer");
+        if (usertype === "VENDOR") this.props.history.push("/vendor");
+        window.location.reload();
+      },
+      error => {
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
 
-          this.setState({
-            loading: false,
-            message: resMessage
-          });
-        }
-      );
-    /*} else {
-      this.setState({
-        loading: false
-      });
-    }*/
+        this.setState({
+          loading: false,
+          message: resMessage
+        });
+      }
+    );
   }
 
   render() {
